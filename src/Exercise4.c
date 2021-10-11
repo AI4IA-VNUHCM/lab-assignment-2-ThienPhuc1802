@@ -12,6 +12,13 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 
+
+void swap (int a, int b){
+    int temp =a;
+    a=b;
+    b=temp;
+}
+
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	argc--;
@@ -21,7 +28,34 @@ int main(int argc, char *argv[]) {
 		test_array[i] = atoi(argv[i+1]);
 	}
 	//Your codes here
+	int arr[1000];
+	int h,t,e,k,j;
+	int length;
 	
-	
+	length=sizeof(test_array)/sizeof(int);
+    for (int i = 0; i < length/2; i++) {
+        for (int j = i + 1; j < length/2; j++) {
+            if (test_array[i] > test_array[j]) {
+                int temp = test_array[i];
+                test_array[i] = test_array[j];
+                test_array[j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < length/2; i++) {
+        printf("%d ", test_array[i]);
+    }
+	for (int i = length/2; i < length; i++) {
+        for (int j = i + 1; j < length; j++) {
+            if (test_array[i] < test_array[j]) {
+                int temp = test_array[j];
+                test_array[j] = test_array[i];
+                test_array[i] = temp;
+            }
+        }
+    }
+	 for (int i = length/2; i < length; i++) {
+        printf("%d ", test_array[i]);
+	 }
 	return 0;
 }
