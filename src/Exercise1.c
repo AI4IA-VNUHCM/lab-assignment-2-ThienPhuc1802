@@ -20,15 +20,15 @@ int main(int argc, char *argv[]) {
 	int result;
 	//Your codes here
 	int i,s;
-	s=distance-2;
-	if(s<=0){
+	
+	if(distance<=2){
 		result=15000;
 	}
-	else if (s<28){
-		result=15000+(s/0.25)*2000;
+	if (distance<=30){
+		result=15000+((distance-2)/0.25)*2000;
 	
 	}
-	else if (s>28)
+	if (distance>30)
 	{
 		result=15000+112*2000+(distance-30)*5000;
 	}
